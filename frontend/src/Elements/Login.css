@@ -1,0 +1,55 @@
+html, body {
+    overflow-x: hidden;
+}
+
+.sign-in {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.46), rgba(160,157,157,0.5)), url(/image.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    z-index: -1;
+}
+
+.sign-in > form {
+    width: 30vw;
+    min-width: 320px;
+    max-width: 90vw;
+    height: 300px;
+    max-height: 90vh;
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px inset white, 2px 2px 5px white;
+    background-color: rgba(77, 77, 77, 0.69);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.sign-in > form > input::placeholder {
+    color: white;
+}
+
+.sign-in > form > input {
+    background-color: transparent;
+    color: white;
+}
+.sign-in > form > input[type="email"]:focus,
+.sign-in > form > input[type="password"]:focus {
+    background-color: white !important;
+    color: black !important;
+}
