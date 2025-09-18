@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { FaUser } from 'react-icons/fa';
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
@@ -84,7 +85,7 @@ const CustomNavbar = () => {
 
   return (
     <header className={`site-header ${isOpen ? "scrolled" : ""}`} ref={navRef}>
-      <nav className="navbar container">
+      <nav className="navbar container mt-3 mb-3">
         <Link to="/" className="brand" onClick={handleNavLink}>
           <img src="/image.jpg" alt="SkillSwap" className="brand-logo" />
           <span className="brand-text">SkillSwap</span>
@@ -128,14 +129,16 @@ const CustomNavbar = () => {
               {isAuthenticated ? (
                 // show profile icon with dropdown
                 <div className="profile-wrapper" ref={profileRef}>
-                  <button
+                    <button
                     type="button"
                     className="profile-btn"
                     aria-haspopup="menu"
                     aria-expanded={profileOpen}
                     onClick={() => setProfileOpen((s) => !s)}
                   >
-                    <span className="avatar" aria-hidden="true">KS</span>
+                    <span className="profile-avatar" aria-hidden="true">
+                      <FaUser />
+                    </span>
                     <span className="visually-hidden">Open profile menu</span>
                   </button>
 

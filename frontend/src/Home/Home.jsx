@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"; // keep your custom animations + extras
+import Cards from "./Cards";
 import ReviewsSection from "../Components/Review";
 import ContactSection from "../Components/Contact";
 import backvideo from "../assets/backvideo1.mp4";
@@ -37,6 +38,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* 🔹 cards section  */}
+      <Cards />
      {/* 🔹 review section  */}
      <ReviewsSection className="w-100" />
      {/* 🔹 contact section  */}

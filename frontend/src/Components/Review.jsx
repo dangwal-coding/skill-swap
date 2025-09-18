@@ -192,7 +192,7 @@ function ReviewCarousel() {
 export default function ReviewsSection() {
   return (
    
-    <div className="relative w-full mt-8 mb-8">
+    <div className="relative w-full mb-8">
       <div className="relative w-full rounded-3xl border border-white/10 bg-gradient-to-br from-black via-gray-900 to-black shadow-[0_0_25px_-5px_rgba(139,92,246,0.25)] overflow-hidden">
         <div className="absolute inset-0 mix-blend-overlay bg-[radial-gradient(circle_at_20%_80%,rgba(167,139,250,0.18),transparent_60%)]" />
         <div className="relative z-10 pt-6 md:pt-8 pb-10">

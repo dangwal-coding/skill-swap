@@ -26,6 +26,26 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide scrollbars site-wide but keep scrolling functionality */
+/* WebKit (Chrome, Safari, newer Edge) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+	width: 0; /* for vertical scrollbar */
+	height: 0; /* for horizontal scrollbar */
+}
+
+/* Firefox */
+html, body {
+	scrollbar-width: none; /* hides scrollbar but allows scroll */
+	-ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Additional safety: for elements that explicitly show scrollbars, allow utility class to opt-out */
+.show-scrollbar {
+	scrollbar-width: auto;
+}
+
+
 /* Provide a gentle card surface default — components that set their own bg will override this */
 .card, .panel {
 	background-color: var(--surface);

@@ -3,13 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer
-      style={{
-        background: "linear-gradient( #212121ff)",
-        color: "#fff",
-      }}
-      className="mt-5 pt-5 pb-4"
-    >
+    <footer className="w-full bg-gradient-to-br from-black via-gray-900 to-black border border-white/10 rounded-2xl mt-5 pt-5 pb-4 text-white">
       <div className="container px-4 mx-auto">
         <div className="row text-center text-md-start">
           {/* 🔹 Brand */}
@@ -60,7 +54,7 @@ const Footer = () => {
         </div>
 
         {/* 🔹 Bottom Line */}
-        <div className="text-center mt-4 pt-3 border-top border-light">
+  <div className="text-center mt-4 pt-3 border-t border-white/10">
           <p className="mb-0 small">
             © {new Date().getFullYear()} SkillSwap. All rights reserved.
           </p>

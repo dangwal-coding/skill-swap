@@ -35,7 +35,8 @@
   justify-content: space-between;
   padding: var(--nav-padding-y) var(--nav-padding-x);
   max-width: 1100px;
-  margin: 0 auto;
+margin-top: 5px;
+margin-bottom: 5px;
 }
 
 .brand {
@@ -199,7 +200,7 @@
   outline-offset: 2px;
 }
 
-.avatar {
+.profile-avatar {
   width: 36px;
   height: 36px;
   display: inline-flex;
@@ -207,7 +208,7 @@
   justify-content: center;
   background: linear-gradient(135deg, #647ACB, #5C7CFA);
   color: white;
-  border-radius: 999px;
+  border-radius: 8px; /* less rounded */
   font-weight: 700;
   font-size: 0.85rem;
   box-shadow: 0 6px 14px rgba(44,50,84,0.28);
@@ -216,10 +217,10 @@
 .profile-dropdown {
   position: absolute;
   right: 0;
-  top: calc(100% + 8px);
+  top: calc(100% + 10px);
   min-width: 160px;
-  background: #0b1220;
-  border-radius: 10px;
+  background: #121e36;
+  border-radius: 8px; /* slightly shorter */
   box-shadow: 0 8px 30px rgba(2,6,23,0.6);
   padding: 0.35rem 0.25rem;
   display: flex;
