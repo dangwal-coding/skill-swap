@@ -1,0 +1,61 @@
+.sign-up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.46), rgba(160, 157, 157, 0.5)), url(/image.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.sign-up form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    gap: 10px;
+    height: 560px;
+    aspect-ratio: 2/3;
+    width: auto;
+    min-width: 320px;
+    max-height: 90vh;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px inset white, 2px 2px 5px white;
+    background-color: rgba(77, 77, 77, 0.69);
+}
+
+label {
+    font-weight: bold;
+    color: rgb(250, 248, 248);
+    text-align: center;
+}
+
+.sign-up>form>input::placeholder {
+    color: white;
+}
+
+.sign-up>form>input {
+    background-color: transparent;
+    color: white;
+}
+
+.sign-up>form>input[type="text"]:focus,
+.sign-up>form>input[type="email"]:focus,
+.sign-up>form>input[type="password"]:focus,
+.sign-up>form>input[type="date"]:focus,
+.sign-up>form>input[type="tel"]:focus {
+    margin-bottom: 8px;
+    background-color: white !important;
+    color: black !important;
+}

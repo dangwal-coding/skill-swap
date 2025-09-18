@@ -2,15 +2,6 @@ const express = require('express');
 const router = express.Router();
 const usermodel = require('../Model/Login');
 
-router.post('/login', async (req, res) => {
-  try {
-    const user = await usermodel.create(req.body);
-    res.status(201).json(user);
-  } catch {
-    res.status(500).json({ message: 'Error creating user' });
-  }
-});
-
 router.get('/login', async (req, res) => {
   try {
     const { email, password } = req.query;

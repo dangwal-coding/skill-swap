@@ -1,0 +1,274 @@
+/* Navbar styles for SkillSwap - responsive, animated, accessible */
+:root {
+  --accent: #5c7cfa;
+  --text: #ffffff;
+  /* responsive sizing */
+  --nav-padding-y: clamp(0.45rem, 1.2vw, 0.8rem);
+  --nav-padding-x: clamp(0.75rem, 2.2vw, 1.25rem);
+  --nav-gap: clamp(0.6rem, 1.5vw, 1.4rem);
+  --brand-font: clamp(0.95rem, 1.1vw, 1.1rem);
+  --dark: #0b1220;
+  --muted: #6b7280;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease;
+  /* default translucent background so content underneath doesn't clash */
+  background: rgba(8, 12, 20, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.site-header.scrolled {
+  background: linear-gradient(90deg, rgba(11, 18, 32, 0.95), rgba(9, 12, 20, 0.95));
+  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--nav-padding-y) var(--nav-padding-x);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--nav-gap);
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(13, 17, 23, 0.4);
+}
+
+.brand-text {
+  font-weight: 700;
+  color: var(--text);
+  font-size: var(--brand-font);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  width: 44px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 1101; /* ensure hamburger sits above mobile menu */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 250ms ease, opacity 250ms ease;
+}
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Desktop menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: var(--nav-gap);
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  transition: background 180ms ease, transform 160ms ease;
+}
+
+.nav-link:hover {
+  background: rgba(227, 222, 222, 0.04);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* Ensure navbar links remain white even if other styles try to override them */
+.navbar,
+.nav-menu,
+.nav-list {
+  color: var(--text);
+}
+
+.navbar a,
+.nav-menu a,
+.nav-link {
+  color: var(--text) !important;
+}
+
+.navbar a:hover,
+.nav-menu a:hover,
+.nav-link:hover,
+.navbar a:focus,
+.nav-menu a:focus,
+.nav-link:focus,
+.navbar a:active,
+.nav-menu a:active,
+.nav-link:active {
+  color: var(--text) !important;
+  outline: none;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(92, 124, 250, 0.18);
+}
+
+.cta:hover {
+  filter: brightness(0.98);
+  transform: translateY(-2px);
+}
+
+/* Specific styling for the logout button */
+.cta.logout {
+  background: #d9534f; /* bootstrap danger-like red */
+  box-shadow: 0 6px 18px rgba(217, 83, 79, 0.18);
+}
+
+.cta.logout:hover {
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+}
+
+/* Overlay for mobile */
+.overlay {
+  display: none;
+}
+
+.overlay.visible {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+/* Mobile layout */
+@media (max-width: 880px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    /* mobile width scales with viewport but caps at 320px for small phones */
+    width: min(90vw, 320px);
+    /* use a solid near-black background for full opacity */
+    height: 100vh;
+    background: #060608;
+    background-color: #060608;
+    backdrop-filter: blur(6px);
+    padding: 4.5rem 1.25rem;
+    transition: right 320ms cubic-bezier(.2, .9, .3, 1);
+    z-index: 1100;
+    display: block;
+    box-shadow: -12px 0 30px rgba(2, 6, 23, 0.6);
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .brand-text {
+    color: var(--text);
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .overlay {
+    display: block;
+  }
+}
+
+/* small polish */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+/* Tablet tweaks */
+@media (max-width: 1024px) and (min-width: 881px) {
+  :root {
+    --nav-gap: 1rem;
+    --brand-font: 1rem;
+  }
+  .navbar {
+    padding: calc(var(--nav-padding-y) * 0.9) calc(var(--nav-padding-x) * 0.9);
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  :root {
+    --brand-font: 0.95rem;
+    --nav-gap: 0.5rem;
+  }
+  .brand-text {
+    font-size: 0.95rem;
+  }
+  .nav-link {
+    padding: 0.4rem 0.5rem;
+  }
+  .hamburger {
+    width: 40px;
+    height: 34px;
+    padding: 5px;
+  }
+}

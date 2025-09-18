@@ -1,17 +1,33 @@
 import React from 'react'
 import './App.css'
 import Login from './Elements/Login'
-import { BrowserRouter,Route,Routes } from 'react-router-dom'
-import Home from './Pages/Home'
-
+import { Route, Routes } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import About from './About/About'
+import User from './Dashboard/User'
+import Home from './Home/Home'
+import Blog from './Blog/Blog'
+import Footer from "./Components/Footer";
+import Signup from './Elements/Signup'
+import Navbar from './Components/Navbar'
+import ProtectedRoute from './Routes/ProtectedRoute'
 function App() {
+  const location = useLocation()
+  const hideFooterOn = ['/login']
+
   return (
-    <BrowserRouter>
+    <>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/" element={<Home />} />
       </Routes>
-    </BrowserRouter>
+      {!hideFooterOn.includes(location.pathname) && <Footer />}
+    </>
   )
 }
 

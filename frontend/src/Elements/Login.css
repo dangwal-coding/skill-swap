@@ -16,6 +16,7 @@ html, body {
     background-size: cover;
     background-position: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -44,7 +45,8 @@ html, body {
     color: white;
 }
 
-.sign-in > form > input {
+.sign-in > form > input[type="email"],
+.sign-in > form > input[type="password"]{
     background-color: transparent;
     color: white;
 }

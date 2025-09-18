@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link} from 'react-router-dom';
 import './Login.css'
 
 function Login() {
@@ -15,9 +15,24 @@ function Login() {
     try {
       const response = await fetch(`http://localhost:8080/api/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
       if (response.ok) {
-        await response.json();
+        const user = await response.json();
+        // store a simple token/user id so Navbar can detect authentication
+        try {
+          const tokenValue = user._id || user.email || JSON.stringify(user);
+          localStorage.setItem('token', tokenValue);
+        } catch {
+          // fallback to a boolean-like token
+          localStorage.setItem('token', 'true');
+        }
+        // notify other parts of the app in this tab about auth change
+        try {
+          window.dispatchEvent(new Event('authChanged'));
+        } catch (_e) {
+          // ignore dispatch errors in very old browsers but keep variable used for lint
+          console.debug('auth dispatch failed', _e);
+        }
         alert('Login successful!');
-        navigate('/home');
+        navigate('/user');
       } else {
         const error = await response.json();
         alert(error.message || 'Login failed');
@@ -35,7 +50,7 @@ function Login() {
         <form action="" method='POST'>
           <h4 className='mb-4'>Login</h4>
           <input type="email" value={email} onChange={e => setEmail(e.target.value)} className='form-control bg-transparent' placeholder='Enter Email' /><br />
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} className='form-control bg-transparent' placeholder='Enter Password' /><br /><br />
+          <input type="password" value={password} onChange={e => setPassword(e.target.value)} className='form-control bg-transparent' placeholder='Enter Password' /><br />
            <input
              type="submit"
              onClick={handleSubmit}
@@ -43,11 +58,11 @@ function Login() {
              value={loading ? "Loading..." : "Login"}
              disabled={loading}
            />
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '12px' }}>
-            <a href="#" style={{textDecoration: 'none', fontWeight: '500'}}>Forgot Password ?</a>
-            <a href="#" style={{textDecoration: 'none', fontWeight: '500' }}>Create an Account</a>
-          </div>
         </form>
+        <div style={{ textAlign: 'center', marginTop: '16px', color: 'white' }}>
+          <a href="#" style={{textDecoration: 'none', fontSize: '18px', fontWeight: '600', marginRight: '24px'}}>Forgot Password ?</a>
+          <Link to="/Signup" style={{textDecoration: 'none', fontWeight: '600', fontSize: '18px'}}>Create an Account</Link>
+        </div>
       </div>
     </div>
   )
