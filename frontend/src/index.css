@@ -1,0 +1,41 @@
+
+/* Tailwind base/components/utilities - enables Tailwind classes project-wide */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global base styles: subtle near-black background for improved contrast without breaking components */
+:root {
+	--site-bg: #0b0c0e; /* very dark gray (not pure black) */
+	--surface: #0f1113; /* slightly lighter for surfaces */
+	--muted-text: #bfc5cc;
+	--text: #e9eef6;
+	--link: #80a8ff;
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background-color: var(--site-bg);
+	color: var(--text);
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Provide a gentle card surface default — components that set their own bg will override this */
+.card, .panel {
+	background-color: var(--surface);
+	color: var(--text);
+}
+
+/* Small helper for muted text */
+.muted { color: var(--muted-text); }
+
+/* Accessibility: prefer high-contrast where necessary */
+@media (prefers-contrast: more) {
+	body { background-color: #060608; color: #fff; }
+}

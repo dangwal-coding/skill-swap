@@ -58,8 +58,29 @@ const CustomNavbar = () => {
     localStorage.removeItem("token");
     setIsAuthenticated(false);
     setIsOpen(false);
-    navigate("/");
+    navigate("/login");
   };
+
+  // profile dropdown open state (separate from mobile menu)
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef(null);
+
+  // close profile dropdown on outside click or Escape
+  useEffect(() => {
+    const onClickOutside = (e) => {
+      if (!profileRef.current) return;
+      if (profileOpen && !profileRef.current.contains(e.target)) setProfileOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") setProfileOpen(false);
+    };
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [profileOpen]);
 
   return (
     <header className={`site-header ${isOpen ? "scrolled" : ""}`} ref={navRef}>
@@ -105,9 +126,30 @@ const CustomNavbar = () => {
             </li>
             <li>
               {isAuthenticated ? (
-                <button type="button" className="cta logout" onClick={handleLogout}>
-                  Logout
-                </button>
+                // show profile icon with dropdown
+                <div className="profile-wrapper" ref={profileRef}>
+                  <button
+                    type="button"
+                    className="profile-btn"
+                    aria-haspopup="menu"
+                    aria-expanded={profileOpen}
+                    onClick={() => setProfileOpen((s) => !s)}
+                  >
+                    <span className="avatar" aria-hidden="true">KS</span>
+                    <span className="visually-hidden">Open profile menu</span>
+                  </button>
+
+                  {profileOpen && (
+                    <div className="profile-dropdown" role="menu">
+                      <Link to="/user" className="dropdown-item" onClick={() => { setProfileOpen(false); handleNavLink(); }} role="menuitem">
+                        Profile
+                      </Link>
+                      <button type="button" className="dropdown-item" onClick={() => { setProfileOpen(false); handleLogout(); }} role="menuitem">
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </div>
               ) : (
                 <Link to="/login" onClick={handleNavLink} className="cta">
                   Login

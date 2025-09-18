@@ -47,20 +47,19 @@ function Login() {
   return (
       <div className='row'>
       <div className="col-sm-12 sign-in">
-        <form action="" method='POST'>
+        <form onSubmit={handleSubmit}>
           <h4 className='mb-4'>Login</h4>
           <input type="email" value={email} onChange={e => setEmail(e.target.value)} className='form-control bg-transparent' placeholder='Enter Email' /><br />
           <input type="password" value={password} onChange={e => setPassword(e.target.value)} className='form-control bg-transparent' placeholder='Enter Password' /><br />
            <input
              type="submit"
-             onClick={handleSubmit}
              className='form-control btn btn-primary'
              value={loading ? "Loading..." : "Login"}
              disabled={loading}
            />
         </form>
-        <div style={{ textAlign: 'center', marginTop: '16px', color: 'white' }}>
-          <a href="#" style={{textDecoration: 'none', fontSize: '18px', fontWeight: '600', marginRight: '24px'}}>Forgot Password ?</a>
+        <div style={{ textAlign: 'center', marginTop: '16px' }}>
+          <Link to="#" style={{textDecoration: 'none', fontSize: '18px', fontWeight: '600', marginRight: '24px'}}>Forgot Password ?</Link>
           <Link to="/Signup" style={{textDecoration: 'none', fontWeight: '600', fontSize: '18px'}}>Create an Account</Link>
         </div>
       </div>
