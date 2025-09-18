@@ -58,7 +58,7 @@ function Login() {
              disabled={loading}
            />
         </form>
-        <div style={{ textAlign: 'center', marginTop: '16px' }}>
+        <div style={{ textAlign: 'center', marginTop: '16px' ,color:'blue'}}>
           <Link to="#" style={{textDecoration: 'none', fontSize: '18px', fontWeight: '600', marginRight: '24px'}}>Forgot Password ?</Link>
           <Link to="/Signup" style={{textDecoration: 'none', fontWeight: '600', fontSize: '18px'}}>Create an Account</Link>
         </div>

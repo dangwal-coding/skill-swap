@@ -10,6 +10,7 @@ const Port= process.env.Port;
 app.use(express.json());
 app.use(cors());
 app.use('/api', require('./Routes/Login'));
+app.use('/api', require('./Routes/Signup'));
 
 
 app.listen(Port,()=>{

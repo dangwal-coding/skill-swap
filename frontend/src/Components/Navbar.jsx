@@ -142,7 +142,7 @@ const CustomNavbar = () => {
                   {profileOpen && (
                     <div className="profile-dropdown" role="menu">
                       <Link to="/user" className="dropdown-item" onClick={() => { setProfileOpen(false); handleNavLink(); }} role="menuitem">
-                        Profile
+                        Dashboard
                       </Link>
                       <button type="button" className="dropdown-item" onClick={() => { setProfileOpen(false); handleLogout(); }} role="menuitem">
                         Logout
