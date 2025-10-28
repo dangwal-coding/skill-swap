@@ -29,9 +29,18 @@ router.post('/signup', upload.single('photo'), async (req, res) => {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
+        // Normalize email to avoid case-sensitive duplicates
+        const normalizedEmail = String(email).trim().toLowerCase();
+
+        // Pre-check for existing user to avoid duplicate key errors
+        const existingUser = await usermodel.findOne({ email: normalizedEmail });
+        if (existingUser) {
+            return res.status(409).json({ message: 'User already exists' });
+        }
+
         const newUser = new usermodel({
             name,
-            email,
+            email: normalizedEmail,
             dob,
             mobile,
             password,
@@ -42,6 +51,10 @@ router.post('/signup', upload.single('photo'), async (req, res) => {
         await newUser.save();
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
+        // Map MongoDB duplicate key error (E11000) to a friendly 409 response
+        if (error && error.code === 11000 && (error.keyPattern?.email || error.keyValue?.email)) {
+            return res.status(409).json({ message: 'User already exists' });
+        }
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
     }

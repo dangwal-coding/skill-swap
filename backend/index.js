@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const db = require('./Helper/Mongodb');
 const dotenv = require('dotenv');
 const mailRoutes = require('./Routes/mailRoutes');
 dotenv.config();
@@ -10,7 +11,6 @@ const Port = process.env.Port || process.env.PORT || 8080;
 
 app.use(express.json()); // ensure JSON body parsing
 app.use(cors());
-// serve uploaded files from /uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', require('./Routes/Login'));
 app.use('/api', require('./Routes/Signup'));

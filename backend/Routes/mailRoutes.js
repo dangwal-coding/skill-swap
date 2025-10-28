@@ -11,7 +11,7 @@ const MAIL_BRAND_COLOR = process.env.MAIL_BRAND_COLOR || '#4F46E5';
 
 const MAIL_LOGO_URL =
   process.env.MAIL_LOGO_URL ||
-  '';
+  'https://raw.githubusercontent.com/dangwal-coding/skill-swap/refs/heads/main/backend/uploads/skillswap.png';
 
 // Helpers
 const escapeHtml = (str = '') =>
