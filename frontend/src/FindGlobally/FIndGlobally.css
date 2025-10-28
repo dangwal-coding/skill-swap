@@ -1,0 +1,163 @@
+.Find-main{
+ 
+    height: auto;
+    width: auto;
+}
+
+
+.profiles-header {
+     height: 40vh;
+    padding-top: 120px;
+     background-color: #18022e;
+     border-bottom: 1px solid white;
+    background-image: radial-gradient(at 82% 65%, hsl(0deg 86.57% 20.07%) 0, transparent 55%);
+    color: white;
+    text-align: center;
+    /* FindGlobally styles - cleaned and themed to match site header */
+}
+    .profiles-header {
+      height: 40vh;
+      padding-top: 120px;
+      background-color: #18022e;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background-image: radial-gradient(at 82% 65%, hsl(0deg 86.57% 20.07%) 0, transparent 55%);
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .profiles-header p{
+      font-size: 1.15rem;
+      opacity: 0.95;
+      margin-top: 10px;
+    }
+
+    /* Card styles */
+    .profile-card {
+      /* Dark frosted surface to match the header */
+      background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+      background-color: rgba(24, 2, 46, 0.6); /* subtle dark purple */
+      color: #fff;
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 20px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(10,8,20,0.45);
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background: conic-gradient(from 0deg, rgba(250,140,195,0.12), rgba(175,128,255,0.12), rgba(106,17,203,0.08));
+      animation: spin 8s linear infinite;
+      z-index: 0;
+      opacity: 0.18;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 14px 30px rgba(20,12,40,0.55);
+    }
+
+    .profile-img-wrapper {
+      width: 110px;
+      height: 110px;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 4px solid rgba(175,128,255,0.9);
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .profile-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .skill-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      background: linear-gradient(135deg, rgba(175,128,255,0.95), rgba(250,140,195,0.95));
+      color: white;
+      border-radius: 20px;
+      margin: 5px;
+    }
+
+    .connect-btn {
+      background: linear-gradient(135deg, rgba(175,128,255,0.98), rgba(250,140,195,0.98));
+      color: #21062b; /* dark text to pop on light gradient */
+      border: none;
+      border-radius: 25px;
+      padding: 10px 24px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      font-weight: 700;
+      z-index: 1;
+      position: relative;
+    }
+
+    .connect-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 8px 20px rgba(175,128,255,0.18);
+    }
+
+    /* Page background and floating blobs */
+    .Find-main {
+      min-height: 100vh;
+      width: 100%;
+      background: linear-gradient(180deg, #0f0620 0%, #1a0b2d 40%, #241033 100%);
+      padding: 60px 30px;
+      position: relative;
+    }
+
+    .Find-main::before,
+    .Find-main::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.25;
+      z-index: 0;
+    }
+
+    .Find-main::before {
+      width: 420px;
+      height: 420px;
+      top: 6%;
+      left: 6%;
+      background: rgba(175,128,255,0.12);
+    }
+
+    .Find-main::after {
+      width: 480px;
+      height: 480px;
+      bottom: 6%;
+      right: 12%;
+      background: rgba(250,140,195,0.12);
+    }
+
+    /* Specific rule: make Ravi Verma cards use white text (override utility classes) */
+    .profile-card,
+    .profile-card h5,
+    .profile-card p,
+    .profile-card .text-danger,
+    .profile-card .text-muted {
+      color: #ffffff !important;
+    }
+

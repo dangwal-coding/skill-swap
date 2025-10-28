@@ -2,16 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css"; // keep your custom animations + extras
 import Cards from "./Cards";
+import PopularSkills from "./PopularSkills";
 import ReviewsSection from "../Components/Review";
 import ContactSection from "../Components/Contact";
 import backvideo from "../assets/backvideo1.mp4";
+import StatsSection from "./StatsSection"; // NEW
 
 const Home = () => {
   return (
     <>
       {/* 🔹 Background Video Section */}
-    <div className="main position-relative d-flex justify-content-center align-items-center mt-5">
-      <video className="back-video mt-3 mt-lg-4" autoPlay loop muted>
+      <div className="main position-relative d-flex justify-content-center align-items-center mt-5">
+        <video className="back-video mt-3 mt-lg-4" autoPlay loop muted>
           <source src={backvideo} type="video/mp4" />
         </video>
         {/* dim/blur overlay to improve contrast */}
@@ -38,12 +40,18 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <PopularSkills />
+
       {/* 🔹 cards section  */}
       <Cards />
-     {/* 🔹 review section  */}
-     <ReviewsSection className="w-100" />
-     {/* 🔹 contact section  */}
-     <ContactSection className="w-100" />
+
+      {/* 🔹 statistics section (moved into its own component) */}
+      <StatsSection />
+
+      {/* 🔹 review section  */}
+      <ReviewsSection className="w-100" />
+      {/* 🔹 contact section  */}
+      <ContactSection className="w-100" />
     </>
   );
 };

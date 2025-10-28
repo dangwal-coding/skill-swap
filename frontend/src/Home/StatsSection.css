@@ -1,0 +1,92 @@
+.stats-title{
+  font-weight: 800;
+  margin: 0;
+    font-size: clamp(2.2rem, 5vw, 2.9rem);
+  background: linear-gradient(90deg, #c7a8ff, #ff8fb3, #7cc7ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stats-subtitle{
+  color: rgba(255,255,255,0.78);
+  margin: 0.5rem 0 0;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+}
+.stats-panel{
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(124,92,255,0.14);
+  outline: 2px solid rgba(255,255,255,0.18);
+  background: linear-gradient(180deg, rgba(10,12,20,0.6), rgba(6,8,14,0.7));
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+.stats-panel::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.03) 50%, rgba(255,255,255,0.02) 100%);
+  transform: translateX(-100%);
+  animation: stats-shimmer 8s linear infinite;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.stats-panel::after{
+  content: '';
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  right: -18vmax;
+  bottom: -18vmax;
+  background: radial-gradient(circle at 20% 80%, rgba(167,139,250,0.07), transparent 35%);
+  filter: blur(40px);
+  animation: stats-floatGlow 10s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes stats-shimmer{
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes stats-floatGlow{
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-6px) scale(1.02); }
+  100% { transform: translateY(0px) scale(1); }
+}
+.stat-value{
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 3.1rem);
+  line-height: 1.1;
+  background: linear-gradient(90deg, #bba5ff, #6ae8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stat-label{
+  margin-top: 0.25rem;
+  color: rgba(255,255,255,0.78);
+  font-weight: 600;
+  letter-spacing: .2px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+.stat{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(124,92,255,0.18);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  box-shadow: 0 6px 20px rgba(2,6,23,0.45);
+}
+@media (max-width: 520px){
+  .stat{ padding: 0.85rem 0.6rem; }
+}
+/* Taller section with generous vertical space */
+.stats-section{
+  padding-block: clamp(3.5rem, 6vw, 6.5rem);
+  min-height: 60vh;
+}
+@media (min-width: 768px){
+  .stat{ padding: 1.5rem 1.25rem; }
+}

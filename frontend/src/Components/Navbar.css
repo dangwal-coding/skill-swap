@@ -20,7 +20,7 @@
   transition: background 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease;
   /* default translucent background so content underneath doesn't clash */
   background: rgba(8, 12, 20, 0.35);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(12px);
 }
 
 .site-header.scrolled {
@@ -35,8 +35,6 @@
   justify-content: space-between;
   padding: var(--nav-padding-y) var(--nav-padding-x);
   max-width: 1100px;
-margin-top: 5px;
-margin-bottom: 5px;
 }
 
 .brand {
@@ -47,7 +45,7 @@ margin-bottom: 5px;
 }
 
 .brand-logo {
-  width: 40px;
+  width: 50px;
   height: 40px;
   object-fit: cover;
   border-radius: 8px;

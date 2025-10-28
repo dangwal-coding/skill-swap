@@ -1,21 +1,119 @@
-.Aboutmain{
+.About-main {
+  background-color: #18022e;
+  border-bottom: 1px solid white;
+  background-image: radial-gradient(at 82% 65%, hsl(0deg 86.57% 20.07%) 0, transparent 55%);
   height: auto;
-    width: 100vw;
-    position: relative;
-    top: 10%;
+  width: auto;
+  padding-top: 100px;
 }
-.back-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* keeps aspect ratio, fills screen */
-  z-index: -1; /* send behind content */
+
+/* Main container */
+.about-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
 }
-.maincontainer{
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-left: 5rem;
-    padding-right: 5rem;
+
+/* Feature cards */
+.feature-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  transition: transform 0.4s ease, background 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffd54f;
+}
+
+/* Button styles (reuse Home) */
+.btn-glow {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  border: none;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(255, 95, 109, 0.6);
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 95, 109, 0.9);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Animations */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* CTA Banner */
+.cta-banner {
+
+  background-color: #18022e;
+  background-image: radial-gradient(at 82% 65%, hsl(0deg 56.45% 29.97% / 48%) 0, #00000000 55%);
+  box-shadow: 0 0 25px rgba(255, 95, 109, 0.6);
+}
+
+.btn-glow {
+  background: #fff;
+  color: #ff5f6d;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px #fff;
+  color: white;
+  background-color: #ff5f6d;
 }

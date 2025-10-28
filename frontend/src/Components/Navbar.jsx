@@ -87,7 +87,7 @@ const CustomNavbar = () => {
     <header className={`site-header ${isOpen ? "scrolled" : ""}`} ref={navRef}>
       <nav className="navbar container mt-3 mb-3">
         <Link to="/" className="brand" onClick={handleNavLink}>
-          <img src="/image.jpg" alt="SkillSwap" className="brand-logo" />
+          <img src="./public/skillswap.png" alt="SkillSwap" className="brand-logo" />
           <span className="brand-text">SkillSwap</span>
         </Link>
 

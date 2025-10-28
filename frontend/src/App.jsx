@@ -11,9 +11,10 @@ import Footer from "./Components/Footer";
 import Signup from './Elements/Signup'
 import Navbar from './Components/Navbar'
 import ProtectedRoute from './Routes/ProtectedRoute'
+import FindGlobally from './FindGlobally/FilndGlobally'
 function App() {
   const location = useLocation()
-  const hideFooterOn = ['/login']
+  const hideFooterOn = ['/login', '/user', '/signup']
 
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<ProtectedRoute><User /></ProtectedRoute>} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/Find" element={<FindGlobally />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/About" element={<About />} />
         <Route path="/" element={<Home />} />

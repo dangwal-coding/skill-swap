@@ -1,0 +1,84 @@
+.top{
+    margin-top: 100px;
+}
+
+/* Instagram-like profile */
+.profile-root{
+    max-width: 900px;
+    margin: 90px auto 40px;
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    color: #111;
+}
+.profile-header{
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+.profile-top{
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+.profile-root .profile-avatar-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    display: block; /* ensure no inline-flex from other rules */
+    background: #f6f6f6;
+}
+.profile-meta{
+    flex: 1;
+}
+.meta-row{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+.profile-name{
+    font-size: 28px;
+    margin:0;
+}
+.edit-btn{
+    padding: 6px 12px;
+    border-radius:6px;
+    background:#fff;
+    border:1px solid #dbdbdb;
+    cursor:pointer;
+}
+.meta-stats{
+    display:flex;
+    gap:20px;
+    margin-top:14px;
+    color:#333;
+}
+.meta-bio{
+    margin-top:12px;
+    color:#333;
+}
+.bio-text{ font-weight:500 }
+.bio-extra{ color:#666; font-size:13px; margin-top:6px }
+.bio-email{ color:#111; font-size:13px; margin-top:6px }
+
+.profile-body{ margin-top:16px }
+.tabs{ display:flex; gap:16px; padding:10px 0 }
+.tab{ padding:8px 12px; color:#666; border-bottom:2px solid transparent }
+.tab.active{ color:#c2f1ff; border-color:#111 }
+
+.posts-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:6px;
+    margin-top:12px;
+}
+.post-item{ width:100%; padding-top:100%; position:relative; overflow:hidden; background:#f3f3f3 }
+.post-item img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover }
+
+@media (max-width: 640px){
+    .profile-top{ flex-direction:column; align-items:flex-start }
+    .profile-root .profile-avatar-img{ width:110px; height:110px }
+    .meta-stats{ gap:12px }
+    .posts-grid{ grid-template-columns: repeat(2, 1fr) }
+}

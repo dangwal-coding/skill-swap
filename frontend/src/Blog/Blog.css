@@ -1,17 +1,25 @@
+.Blog-main{
+     background-color: #1c191f;
+    background-image: radial-gradient(at 82% 65%, hsl(0deg 86.57% 20.07%) 0, transparent 55%);
+    height: auto;
+    width: auto;
+       padding-top: 75px;
+     border-bottom: 1px solid white;
+}
 .blog-hero {
-  height: 65vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #ff6a00, #ee0979);
-  color: white;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    height: 40vh;
+    padding-top: 120px;
+     background-color: #18022e;
+     border-bottom: 1px solid white;
+    background-image: radial-gradient(at 82% 65%, hsl(0deg 86.57% 20.07%) 0, transparent 55%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 2s 
+ease;
 }
 .blog-hero h1 {
-  font-size: 4rem;
-  font-weight: 800;
   letter-spacing: 2px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
@@ -22,6 +30,10 @@
   animation: fadeInDown 1.5s ease;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -29,23 +41,27 @@
 
 /* Blog Section Container */
 .Blogcontainer {
-  padding: 80px 50px;
-  background: linear-gradient(135deg, black, #363535);
-  min-height: 100vh;
+    padding: 80px 50px;
+    padding-top: 15px;
+    border: 1px solid white;
+    background: linear-gradient(135deg, black, #363535);
+    min-height: 100vh;
+    color: white;
+    border-radius: 35px;
 }
 
 /* Blog Card Styling */
 .blog-card {
   border-radius: 20px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .blog-card:hover {
   transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* Blog Image */
@@ -93,11 +109,11 @@
 .blog-card h5 {
   font-weight: 700;
   font-size: 1.25rem;
-  color: #333;
+  color: #222;
 }
 .blog-card p {
   font-size: 0.95rem;
-  color: #555;
+  color: #444;
 }
 
 /* Gradient Button */
@@ -114,4 +130,62 @@
   background: linear-gradient(135deg, #ee0979, #ff6a00);
   transform: scale(1.08);
   box-shadow: 0 6px 18px rgba(238, 9, 121, 0.4);
+}
+
+/* Tabs */
+.tab-btn {
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  color: #ddd;
+  padding: 8px 18px;
+  transition: 0.3s;
+}
+.tab-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+.tab-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Featured Section */
+.featured-card {
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  border-radius: 15px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+.featured-card:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Testimonials */
+.testimonial-card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Newsletter */
+.newsletter {
+    background-color: #18022e;
+    background-image: radial-gradient(at 82% 65%, hsl(0deg 53.32% 12.29%) 0, transparent 55%);
+    color: white;
+}
+.newsletter input {
+  border-radius: 30px;
+  border: none;
+  padding: 10px 15px;
+}
+.newsletter button {
+  border-radius: 30px;
+  font-weight: bold;
 }

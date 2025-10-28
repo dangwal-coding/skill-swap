@@ -16,13 +16,18 @@ function Login() {
       const response = await fetch(`http://localhost:8080/api/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
       if (response.ok) {
         const user = await response.json();
-        // store a simple token/user id so Navbar can detect authentication
+        // store token and full user object so other pages can show profile info
         try {
           const tokenValue = user._id || user.email || JSON.stringify(user);
           localStorage.setItem('token', tokenValue);
         } catch {
-          // fallback to a boolean-like token
           localStorage.setItem('token', 'true');
+        }
+        try {
+          // Save entire user object if backend returns it
+          localStorage.setItem('user', JSON.stringify(user));
+        } catch (e) {
+          console.warn('Could not persist user object', e);
         }
         // notify other parts of the app in this tab about auth change
         try {

@@ -1,16 +1,20 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const db = require('./Helper/Mongodb');
 const cors = require('cors');
+const dotenv = require('dotenv');
+const mailRoutes = require('./Routes/mailRoutes');
 dotenv.config();
 
 const app = express();
-const Port= process.env.Port;
+const path = require('path');
+const Port = process.env.Port || process.env.PORT || 8080;
 
-app.use(express.json());
+app.use(express.json()); // ensure JSON body parsing
 app.use(cors());
+// serve uploaded files from /uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', require('./Routes/Login'));
 app.use('/api', require('./Routes/Signup'));
+app.use('/api', mailRoutes); // mount mail routes at /api
 
 
 app.listen(Port,()=>{
